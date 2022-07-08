@@ -1,5 +1,3 @@
-
-
 module Module.Discover.Run
   ( run
   , Module(..)
