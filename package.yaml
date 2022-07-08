@@ -60,10 +60,14 @@ default-extensions:
 
 library:
   source-dirs: library
+  dependencies:
+    - filepattern
+    - filepath
+    - extra
 
 executables:
   module-discover:
-    source-dirs: driver
+    source-dirs: example
     main: Main.hs
     dependencies:
       - module-discover
