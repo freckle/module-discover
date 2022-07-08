@@ -13,7 +13,8 @@ spec = do
     it "matches expected modules" $ do
       run
         (pure . show)
-        ["example-dir/Some/Module/", "[unused]", "/tmp/foo.txt", "**/*.hs"]
+        Nothing
+        ["example-dir/Some/Module/", "[unused]", "/tmp/foo.txt"]
       (read <$> readFile "/tmp/foo.txt")
         `shouldReturn` [ Module
                          { moduleName = "Name"

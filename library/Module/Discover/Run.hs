@@ -7,6 +7,7 @@ import Prelude
 
 import Data.Char (isUpper)
 import Data.List.Extra (replace)
+import Data.Maybe (fromMaybe)
 import System.Exit (exitFailure)
 import System.FilePath
   ( dropExtension
@@ -17,19 +18,20 @@ import System.FilePath
   , takeFileName
   , (</>)
   )
-import System.FilePattern.Directory (getDirectoryFiles)
+import System.FilePattern.Directory (FilePattern, getDirectoryFiles)
 import System.IO (hPutStrLn, stderr)
 
 run
   :: ([Module] -> IO String) -- ^ Output function
+  -> Maybe FilePattern -- ^ Optional file Pattern
   -> [String] -- ^ Processor arguments
   -> IO ()
-run output args = do
+run output filePattern args = do
   case args of
-    src : _ : dst : filePattern : _args -> do
+    src : _ : dst : _args -> do
       let srcDir = takeDirectory src
       modules <- fmap (toModule srcDir)
-        <$> getDirectoryFiles srcDir [filePattern]
+        <$> getDirectoryFiles srcDir [fromMaybe "**/*.hs" filePattern]
       out <- output modules
       writeFile dst out
     _ -> do

@@ -8,7 +8,7 @@ import Module.Discover.Run (Module(..), run)
 import System.Environment (getArgs)
 
 main :: IO ()
-main = getArgs >>= run (pure . make)
+main = getArgs >>= run (pure . make) Nothing
 
 make :: [Module] -> String
 make modules =
