@@ -1,0 +1,7 @@
+module Main (main) where
+
+import qualified Module.Discover.RunSpec
+
+main :: IO ()
+main = do
+  Module.Discover.RunSpec.spec

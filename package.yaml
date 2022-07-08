@@ -69,6 +69,14 @@ executables:
   module-discover-example:
     source-dirs: example
     main: Main.hs
+    other-modules: []
+    dependencies:
+      - module-discover
+
+  module-discover-hspec:
+    source-dirs: example
+    main: Hspec.hs
+    other-modules: []
     dependencies:
       - module-discover
 
