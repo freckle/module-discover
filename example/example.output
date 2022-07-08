@@ -1,0 +1,13 @@
+module Main (main) where
+
+import qualified Some.Module.Name as Name
+import qualified Some.Module.Path.Name1 as Name1
+import qualified Some.Module.Path.Name2 as Name2
+import qualified Some.Module.Path.Name3 as Name3
+
+main :: IO ()
+main = do
+  Name.main
+  Name1.main
+  Name2.main
+  Name3.main

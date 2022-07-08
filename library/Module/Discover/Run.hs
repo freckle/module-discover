@@ -60,4 +60,4 @@ data Module = Module
   , moduleFullName :: String
   , moduleFilePath :: FilePath
   }
-  deriving stock (Eq, Ord, Show)
+  deriving stock (Eq, Ord, Show, Read)
