@@ -4,13 +4,13 @@ cabal-version: 1.18
 --
 -- see: https://github.com/sol/hpack
 
-name:           haskell-library-template
+name:           module-discover
 version:        0.0.0.0
 synopsis:       [synopsis]
 description:    Please see README.md
 category:       Utils
-homepage:       https://github.com/freckle/haskell-library-template#readme
-bug-reports:    https://github.com/freckle/haskell-library-template/issues
+homepage:       https://github.com/freckle/module-discover#readme
+bug-reports:    https://github.com/freckle/module-discover/issues
 maintainer:     Freckle Education
 license:        MIT
 license-file:   LICENSE
@@ -23,7 +23,7 @@ extra-doc-files:
 
 source-repository head
   type: git
-  location: https://github.com/freckle/haskell-library-template
+  location: https://github.com/freckle/module-discover
 
 library
   other-modules:

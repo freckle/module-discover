@@ -1,18 +1,6 @@
-# haskell-library-template
+# module-discover
 
-Haskell library template used at Freckle.
-
-## Create your repo
-
-```sh
-gh repo create --template freckle/haskell-library-template --public freckle/<name>
-```
-
-## Rename your package
-
-```sh
-sed -i s/haskell-library-template/my-name/ ./**/*
-```
+Haskell library for building module discovery pre-processors.
 
 ## Enable release
 
