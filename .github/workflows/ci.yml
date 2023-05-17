@@ -5,25 +5,24 @@ on:
   push:
     branches: main
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         stack-yaml:
-          - stack-nightly.yaml   # ghc-9.2
-          - stack.yaml           # ghc-9.0
+          - stack-nightly.yaml   # ghc-9.4
+          - stack.yaml           # ghc-9.2
           - stack-lts-18.28.yaml # ghc-8.10
           - stack-lts-16.31.yaml # ghc-8.8
       fail-fast: false
-
     steps:
       - uses: actions/checkout@v3
-      - uses: freckle/stack-cache-action@v2
-        with:
-          stack-yaml: ${{ matrix.stack-yaml }}
-      - uses: freckle/stack-action@v3
+      - uses: freckle/stack-action@v4
         with:
           stack-yaml: ${{ matrix.stack-yaml }}
 
