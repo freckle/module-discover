@@ -56,11 +56,16 @@ toModuleFullName srcDir filePath =
     dropExtension $
       joinPath $
         reverse $
-          takeWhile (isUpper . head) $
+          takeWhile (startsWith isUpper) $
             reverse $
               splitPath $
                 srcDir
                   </> filePath
+
+startsWith :: (a -> Bool) -> [a] -> Bool
+startsWith f = \case
+  [] -> False
+  x : _ -> f x
 
 data Module = Module
   { moduleName :: String
