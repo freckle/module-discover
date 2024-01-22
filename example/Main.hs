@@ -4,7 +4,7 @@ module Main
 
 import Prelude
 
-import Module.Discover.Run (Module(..), run)
+import Module.Discover.Run (Module (..), run)
 import System.Environment (getArgs)
 
 main :: IO ()
@@ -12,11 +12,11 @@ main = getArgs >>= run (pure . make) Nothing
 
 make :: [Module] -> String
 make modules =
-  unlines
-    $ ["module Main (main) where", ""]
-    <> (toQualifiedImport <$> modules)
-    <> ["", "main :: IO ()", "main = do"]
-    <> (toMainCall <$> modules)
+  unlines $
+    ["module Main (main) where", ""]
+      <> (toQualifiedImport <$> modules)
+      <> ["", "main :: IO ()", "main = do"]
+      <> (toMainCall <$> modules)
 
 toQualifiedImport :: Module -> String
 toQualifiedImport Module {..} =
