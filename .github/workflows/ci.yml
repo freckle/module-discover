@@ -15,13 +15,14 @@ jobs:
     strategy:
       matrix:
         stack-yaml:
-          - stack-nightly.yaml   # ghc-9.4
-          - stack.yaml           # ghc-9.2
+          - stack-nightly.yaml # ghc-9.4
+          - stack.yaml # ghc-9.4
+          - stack-lts-19.6.yaml # ghc-9.2
           - stack-lts-18.28.yaml # ghc-8.10
           - stack-lts-16.31.yaml # ghc-8.8
       fail-fast: false
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: freckle/stack-action@v4
         with:
           stack-yaml: ${{ matrix.stack-yaml }}
@@ -29,7 +30,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: haskell/actions/hlint-setup@v2
       - uses: haskell/actions/hlint-run@v2
         with:
