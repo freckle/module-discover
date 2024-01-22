@@ -51,16 +51,15 @@ toModule srcDir filePath =
     }
 
 toModuleFullName :: FilePath -> FilePath -> String
-toModuleFullName srcDir filePath =
-  replace [pathSeparator] "." $
-    dropExtension $
-      joinPath $
-        reverse $
-          takeWhile (startsWith isUpper) $
-            reverse $
-              splitPath $
-                srcDir
-                  </> filePath
+toModuleFullName srcDir =
+  replace [pathSeparator] "."
+    . dropExtension
+    . joinPath
+    . reverse
+    . takeWhile (startsWith isUpper)
+    . reverse
+    . splitPath
+    . (srcDir </>)
 
 startsWith :: (a -> Bool) -> [a] -> Bool
 startsWith f = \case
