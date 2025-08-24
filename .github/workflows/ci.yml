@@ -22,7 +22,7 @@ jobs:
           - stack-lts-16.31.yaml # ghc-8.8
       fail-fast: false
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: freckle/stack-action@v4
         with:
           stack-yaml: ${{ matrix.stack-yaml }}
@@ -30,7 +30,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: haskell/actions/hlint-setup@v2
       - uses: haskell/actions/hlint-run@v2
         with:
